@@ -1,13 +1,7 @@
-Feature: Tests youtube home page
+Feature: Tests sauce demo page
 
   @jeff
-  Scenario: Clicks the Youtube Home button
-    Given User visits youtube
-    When User clicks youtube home button in top left
-    Then user is on the youtube home page
-
-  @jeff2
-  Scenario: Clicks the Explore Button on Home Page
-    Given User visits youtube
-    When user clicks Explore button on left hand side of page
-    Then user observes Trending and Music buttons
+  Scenario: Logs in to Sauce Demo
+    Given User visits saucedemo.com
+    And User logs in
+    Then user is taken to inventory page
