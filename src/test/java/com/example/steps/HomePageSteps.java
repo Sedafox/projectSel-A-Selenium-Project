@@ -9,6 +9,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -23,14 +24,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HomePageSteps {
 
   private final ScenarioState state;
-  public WebDriver driver;
+  private WebDriver driver = Hook.WebDriverUtils.getDriver();
 
   private HomePage homePage;
 
   public HomePageSteps(final ScenarioState state) {
-    this.driver = Hook.driver;
     this.state = state;
-    this.homePage = new HomePage(driver);
+    this.homePage = new HomePage();
   }
 
 
@@ -41,7 +41,7 @@ public class HomePageSteps {
   }
 
   @And("User logs in")
-  public void userLogsIn() {
+  public void userLogsIn() throws InterruptedException {
     homePage.logIn();
   }
 
@@ -49,5 +49,4 @@ public class HomePageSteps {
   public void userIsTakenToInventoryPage() {
     assertEquals(homePage.basePage() + "inventory.html", driver.getCurrentUrl());
   }
-
 }

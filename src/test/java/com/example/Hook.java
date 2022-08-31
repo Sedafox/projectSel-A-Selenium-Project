@@ -2,6 +2,9 @@ package com.example;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -9,24 +12,26 @@ import java.util.concurrent.TimeUnit;
 
 public class Hook {
 
-
-    public static WebDriver driver;
-
     @Before
-    public void beforeEach(){
+    public void initalizeDriver() {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        WebDriver driver=new ChromeDriver();
-        this.driver = driver;
-
-
-        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        WebDriverUtils.setDriver(new ChromeDriver());
     }
 
-    @After
-    public void afterEach(){
-        this.driver.close();
+    public class WebDriverUtils {
+        private static WebDriver driver;
+        public static void setDriver(WebDriver webDriver) {
+            if (driver == null) {
+                driver = webDriver;
+            }
+        }
+        public static WebDriver getDriver() {
+            if (driver == null) {
+                throw new AssertionError("Driver is null. Initialize driver before calling this method.");
+            }
+            return driver;
+        }
     }
 
 }
