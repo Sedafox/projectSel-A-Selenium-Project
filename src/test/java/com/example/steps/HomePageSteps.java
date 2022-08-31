@@ -1,22 +1,15 @@
 package com.example.steps;
 
+import com.example.Hook;
 import com.example.Pages.HomePage;
 import com.example.state.ScenarioState;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -30,32 +23,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HomePageSteps {
 
   private final ScenarioState state;
-  private WebDriver driver;
+  public WebDriver driver;
 
   private HomePage homePage;
 
   public HomePageSteps(final ScenarioState state) {
-
+    this.driver = Hook.driver;
     this.state = state;
+    this.homePage = new HomePage(driver);
   }
 
-  @Before
-  public void beforeAll(){
-    System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-    WebDriver driver=new ChromeDriver();
-    this.driver = driver;
-
-    HomePage homePage = new HomePage(driver);
-    this.homePage = homePage;
-
-    driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
-    driver.manage().window().maximize();
-  }
-
-  @After
-  public void afterEach(){
-    this.driver.close();
-  }
 
   @Given("User visits saucedemo.com")
   public void userVisitsSaucedemoCom() {
@@ -72,4 +49,5 @@ public class HomePageSteps {
   public void userIsTakenToInventoryPage() {
     assertEquals(homePage.basePage() + "inventory.html", driver.getCurrentUrl());
   }
+
 }
