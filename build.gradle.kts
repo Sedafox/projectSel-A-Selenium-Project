@@ -56,7 +56,10 @@ tasks {
         // OPTIONAL: Force test execution even if they are up-to-date according to Gradle
         outputs.upToDateWhen { false }
     }
+
 }
+
+
 
 java {
     // OPTIONAL: Use Java 17 toolchain, adjust according to your needs or remove entirely

@@ -1,9 +1,13 @@
 package com.example;
 
 
-import org.junit.platform.suite.api.IncludeEngines;
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.platform.suite.api.ExcludeTags;
 import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
+
+import static io.cucumber.core.options.Constants.FILTER_TAGS_PROPERTY_NAME;
+import static io.cucumber.core.options.Constants.GLUE_PROPERTY_NAME;
 
 /**
  * Use junit-platform-suite to tell both your IDE and Gradle where to find tests. The "features" folder in

@@ -30,4 +30,9 @@ public class InventoryPageSteps {
     public void cartDisplaysOneItemInsideOfIt() {
         assertEquals("1", inventoryPage.shoppingCartBadge().getText());
     }
+
+    @Then("user verifies facebook, twitter, and linked in links exist at the bottom of the page")
+    public void userVerifiesFacebookTwitterAndLinkedInLinksExistAtTheBottomOfThePage() {
+        inventoryPage.twitterButton();
+    }
 }

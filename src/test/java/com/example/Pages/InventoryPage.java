@@ -20,4 +20,6 @@ public class InventoryPage extends Base {
     public WebElement backPackAddToCart(){
         return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
     }
+
+    public WebElement twitterButton() { return driver.findElement(By.xpath("//*[@href='https://twitter.com/saucelabs']")); }
 }
