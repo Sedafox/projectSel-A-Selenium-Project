@@ -3,6 +3,7 @@ package com.example.steps;
 import com.example.Pages.HomePage;
 import com.example.state.ScenarioState;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -51,10 +52,11 @@ public class HomePageSteps {
     driver.manage().window().maximize();
   }
 
-  @AfterAll
-  public void afterAll(){
+  @After
+  public void afterEach(){
     this.driver.close();
   }
+
   @Given("User visits saucedemo.com")
   public void userVisitsSaucedemoCom() {
     homePage.goToHome();
@@ -69,6 +71,5 @@ public class HomePageSteps {
   @Then("user is taken to inventory page")
   public void userIsTakenToInventoryPage() {
     assertEquals(homePage.basePage() + "inventory.html", driver.getCurrentUrl());
-    driver.close();
   }
 }
