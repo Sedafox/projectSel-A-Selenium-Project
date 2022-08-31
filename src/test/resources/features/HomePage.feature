@@ -1,3 +1,4 @@
+@Smoke @Home
 Feature: Tests sauce demo page
 
   Scenario: Logs in to Sauce Demo

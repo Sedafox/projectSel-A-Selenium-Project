@@ -1,4 +1,4 @@
-@InventoryPage
+@Smoke @InventoryPage
 Feature: Tests the Inventory page
 
 
