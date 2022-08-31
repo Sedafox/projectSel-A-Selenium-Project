@@ -1,14 +1,9 @@
 package com.example;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
 
 public class Hook {
 
@@ -17,6 +12,11 @@ public class Hook {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         WebDriverUtils.setDriver(new ChromeDriver());
+    }
+
+    @After
+    public void closeDriver(){
+        WebDriverUtils.getDriver().close();
     }
 
     public class WebDriverUtils {
