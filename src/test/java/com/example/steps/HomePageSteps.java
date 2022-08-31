@@ -2,11 +2,17 @@ package com.example.steps;
 
 import com.example.Pages.HomePage;
 import com.example.state.ScenarioState;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,21 +29,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HomePageSteps {
 
   private final ScenarioState state;
-  private final WebDriver driver;
+  private WebDriver driver;
 
-  private final HomePage homePage;
+  private HomePage homePage;
 
   public HomePageSteps(final ScenarioState state) {
+
+    this.state = state;
+  }
+
+  @Before
+  public void beforeAll(){
     System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
     WebDriver driver=new ChromeDriver();
     this.driver = driver;
 
     HomePage homePage = new HomePage(driver);
     this.homePage = homePage;
+
     driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
     driver.manage().window().maximize();
+  }
 
-    this.state = state;
+  @AfterAll
+  public void afterAll(){
+    this.driver.close();
   }
   @Given("User visits saucedemo.com")
   public void userVisitsSaucedemoCom() {
