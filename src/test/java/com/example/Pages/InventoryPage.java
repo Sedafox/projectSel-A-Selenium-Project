@@ -22,4 +22,10 @@ public class InventoryPage extends Base {
     }
 
     public WebElement twitterButton() { return driver.findElement(By.xpath("//*[@href='https://twitter.com/saucelabs']")); }
+
+    public WebElement facebookButton() { return driver.findElement(By.xpath("//*[@href='https://www.facebook.com/saucelabs']")); }
+
+    public WebElement linkedInButton() { return driver.findElement(By.xpath("//*[@href='https://www.linkedin.com/company/sauce-labs/']")); }
+
+    public WebElement filterDropDown() { return driver.findElement(By.className("product_sort_container")); }
 }

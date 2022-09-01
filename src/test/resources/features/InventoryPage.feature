@@ -12,3 +12,8 @@ Feature: Tests the Inventory page
     Given User visits saucedemo.com
     And User logs in
     Then user verifies facebook, twitter, and linked in links exist at the bottom of the page
+
+  Scenario: User verifies filter drop down contains: Name (A-Z), Name (Z-A), Price (Low-High), Price (High-Low)
+    Given User visits saucedemo.com
+    And User logs in
+    Then user verifies filter drop down contains Name (A-Z), Name (Z-A), Price (Low-High), and Price (High-Low)

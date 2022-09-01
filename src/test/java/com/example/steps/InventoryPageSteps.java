@@ -34,5 +34,12 @@ public class InventoryPageSteps {
     @Then("user verifies facebook, twitter, and linked in links exist at the bottom of the page")
     public void userVerifiesFacebookTwitterAndLinkedInLinksExistAtTheBottomOfThePage() {
         inventoryPage.twitterButton();
+        inventoryPage.facebookButton();
+        inventoryPage.linkedInButton();
+    }
+
+    @Then("user verifies filter drop down contains Name \\(A-Z), Name \\(Z-A), Price \\(Low-High), and Price \\(High-Low)")
+    public void userVerifiesFilterDropDownContainsNameAZNameZAPriceLowHighAndPriceHighLow() {
+        inventoryPage.filterDropDown();
     }
 }
