@@ -39,10 +39,10 @@ public class InventoryPageSteps {
     }
 
     @Then("user verifies filter drop down contains Name \\(A-Z), Name \\(Z-A), Price \\(Low-High), and Price \\(High-Low)")
-    public void userVerifiesFilterDropDownContainsNameAZNameZAPriceLowHighAndPriceHighLow() {
+    public void userVerifiesFilterDropDownContainsNameAZNameZAPriceLowHighAndPriceHighLow(){
         inventoryPage.filterDropDownOptions().selectByVisibleText("Name (A to Z)");
-        //TODO Name Z to A
-        //TODO Price Low to HIgh
-        //TODO Price HIgh to Low
+        inventoryPage.filterDropDownOptions().selectByVisibleText("Name (Z to A)");
+        inventoryPage.filterDropDownOptions().selectByVisibleText("Price (low to high)");
+        inventoryPage.filterDropDownOptions().selectByVisibleText("Price (high to low)");
     }
 }
