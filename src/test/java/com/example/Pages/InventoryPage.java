@@ -4,6 +4,7 @@ import com.example.Hook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class InventoryPage extends Base {
 
@@ -28,4 +29,9 @@ public class InventoryPage extends Base {
     public WebElement linkedInButton() { return driver.findElement(By.xpath("//*[@href='https://www.linkedin.com/company/sauce-labs/']")); }
 
     public WebElement filterDropDown() { return driver.findElement(By.className("product_sort_container")); }
+
+    public Select filterDropDownOptions() {
+        Select oSel = new Select(filterDropDown());
+        return oSel;
+    }
 }
