@@ -17,3 +17,12 @@ Feature: Tests the Inventory page
     Given User visits saucedemo.com
     And User logs in
     Then user verifies filter drop down contains Name (A-Z), Name (Z-A), Price (Low-High), and Price (High-Low)
+
+  Scenario: User verifies that clicking the hamburger menu button displays "All Items, About, LogOut, Reset App State"
+    Given User visits saucedemo.com
+    And User logs in
+    When User clicks the hamburger menu button
+    #Then user verifies that All Items button shows
+    #And user verifies that About shows
+    #And user verifies that LogOut shows
+    #And user verifies that Reset App State shows
