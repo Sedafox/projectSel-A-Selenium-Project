@@ -24,6 +24,16 @@ public class InventoryPage extends Base {
         return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
     }
 
+    public WebElement bikeLightAddToCart() { return driver.findElement(By.id("add-to-cart-sauce-labs-bike-light")); }
+
+    public WebElement boldTShirtAddToCart() { return driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt")); }
+
+    public WebElement fleeceJacketAddToCart() { return driver.findElement(By.id("add-to-cart-sauce-labs-fleece-jacket")); }
+
+    public WebElement onsesieAddToCart() { return driver.findElement(By.id("add-to-cart-sauce-labs-onesie")); }
+
+    public WebElement tShirtAddToCart() { return driver.findElement(By.id("add-to-cart-test.allthethings()-t-shirt-(red)")); }
+
     public WebElement twitterButton() { return driver.findElement(By.xpath("//*[@href='https://twitter.com/saucelabs']")); }
 
     public WebElement facebookButton() { return driver.findElement(By.xpath("//*[@href='https://www.facebook.com/saucelabs']")); }

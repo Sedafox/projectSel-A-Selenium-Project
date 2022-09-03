@@ -21,4 +21,8 @@ public class Base {
     public WebElement loginButton(WebDriver driver){
         return driver.findElement(By.xpath("//input[@id='login-button']"));
     }
+
+    public int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
 }

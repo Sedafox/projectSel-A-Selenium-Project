@@ -76,4 +76,5 @@ public class InventoryPageSteps {
     public void userVerifiesThatProductsDisplayByDefault(int arg0) {
         assertEquals(6, inventoryPage.defaultProducts().size());
     }
+
 }
