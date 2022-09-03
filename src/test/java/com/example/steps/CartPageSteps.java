@@ -71,6 +71,17 @@ public class CartPageSteps {
 
     @And("clicks the cart button to visit the cart page")
     public void clicksTheCartButtonToVisitTheCartPage() {
-        inventoryPage.shoppingCartBadge().click();
+        inventoryPage.shoppingCartButton().click();
+    }
+
+    @Then("user verifies that continue shopping button exists")
+    public void userVerifiesThatContinueShoppingButtonExists() {
+        cartPage.continueShoppingButton();
+    }
+
+    @And("clicking it returns the user back to the inventory page")
+    public void clickingItReturnsTheUserBackToTheInventoryPage() {
+        cartPage.continueShoppingButton().click();
+        assertEquals(cartPage.basePage() + "inventory.html", driver.getCurrentUrl());
     }
 }

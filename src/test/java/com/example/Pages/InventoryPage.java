@@ -16,6 +16,8 @@ public class InventoryPage extends Base {
         this.driver = driver;
     }
 
+    public WebElement shoppingCartButton() { return driver.findElement(By.className("shopping_cart_link")); }
+
     public WebElement shoppingCartBadge(){
         return driver.findElement(By.className("shopping_cart_badge"));
     }
