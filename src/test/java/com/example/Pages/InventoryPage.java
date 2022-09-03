@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class InventoryPage extends Base {
 
     private WebDriver driver = Hook.WebDriverUtils.getDriver();
@@ -34,4 +36,16 @@ public class InventoryPage extends Base {
         Select oSel = new Select(filterDropDown());
         return oSel;
     }
+
+    public WebElement hamburgerMenu() { return driver.findElement(By.id("react-burger-menu-btn")); }
+
+    public WebElement hamburgerAllItems() { return driver.findElement(By.id("inventory_sidebar_link")); }
+
+    public WebElement hamburgerAbout() { return driver.findElement(By.id("about_sidebar_link")); }
+
+    public WebElement hamburgerLogOut() { return driver.findElement(By.id("logout_sidebar_link")); }
+
+    public WebElement hamburgerReset() { return driver.findElement(By.id("reset_sidebar_link")); }
+
+    public List<WebElement> defaultProducts() { return driver.findElements(By.className("inventory_item_description")); }
 }

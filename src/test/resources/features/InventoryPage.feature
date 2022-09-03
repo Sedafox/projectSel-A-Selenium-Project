@@ -22,7 +22,12 @@ Feature: Tests the Inventory page
     Given User visits saucedemo.com
     And User logs in
     When User clicks the hamburger menu button
-    #Then user verifies that All Items button shows
-    #And user verifies that About shows
-    #And user verifies that LogOut shows
-    #And user verifies that Reset App State shows
+    Then user verifies that All Items button shows
+    And user verifies that About shows
+    And user verifies that LogOut shows
+    And user verifies that Reset App State shows
+
+  Scenario:  User verifies there are 6 products on the Inventory Page by default
+    Given User visits saucedemo.com
+    And User logs in
+    Then User verifies that 6 products display by default

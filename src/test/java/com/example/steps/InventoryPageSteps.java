@@ -3,6 +3,7 @@ package com.example.steps;
 import com.example.Hook;
 import com.example.Pages.InventoryPage;
 import com.example.state.ScenarioState;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
@@ -44,5 +45,35 @@ public class InventoryPageSteps {
         inventoryPage.filterDropDownOptions().selectByVisibleText("Name (Z to A)");
         inventoryPage.filterDropDownOptions().selectByVisibleText("Price (low to high)");
         inventoryPage.filterDropDownOptions().selectByVisibleText("Price (high to low)");
+    }
+
+    @When("User clicks the hamburger menu button")
+    public void userClicksTheHamburgerMenuButton() {
+        inventoryPage.hamburgerMenu().click();
+    }
+
+    @Then("user verifies that All Items button shows")
+    public void userVerifiesThatAllItemsButtonShows() {
+        inventoryPage.hamburgerAllItems();
+    }
+
+    @And("user verifies that About shows")
+    public void userVerifiesThatAboutShows() {
+        inventoryPage.hamburgerAbout();
+    }
+
+    @And("user verifies that LogOut shows")
+    public void userVerifiesThatLogOutShows() {
+        inventoryPage.hamburgerLogOut();
+    }
+
+    @And("user verifies that Reset App State shows")
+    public void userVerifiesThatResetAppStateShows() {
+        inventoryPage.hamburgerReset();
+    }
+
+    @Then("User verifies that {int} products display by default")
+    public void userVerifiesThatProductsDisplayByDefault(int arg0) {
+        assertEquals(6, inventoryPage.defaultProducts().size());
     }
 }
