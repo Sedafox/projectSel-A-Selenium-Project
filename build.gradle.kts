@@ -31,18 +31,13 @@ tasks {
     test {
         // REQUIRED: Tell Gradle to use the JUnit 5 platform to execute tests
         // see https://docs.gradle.org/current/userguide/java_testing.html#using_junit5
-        useJUnitPlatform {
-            // OPTIONAL: Exclude all tests (examples/scenarios) annotated with @disabled by default
-            excludeTags("disabled")
-            // OPTIONAL: Include only specified tags using JUnit5 tag expressions
-            if (project.hasProperty("includeTags")) includeTags(project.property("includeTags") as String?)
-        }
+        useJUnitPlatform()
         // OPTIONAL: Ignore test failures so that build pipelines won't get blocked by failing examples/scenarios
         ignoreFailures = true
         // OPTIONAL: Copy all system properties from the command line (-D...) to the test environment
         systemProperties(project.gradle.startParameter.systemPropertiesArgs)
         // OPTIONAL: Enable parallel test execution
-        systemProperty("cucumber.execution.parallel.enabled", true)
+        systemProperty("cucumber.execution.parallel.enabled", false)
         // OPTIONAL: Set parallel execution strategy (defaults to dynamic)
         systemProperty("cucumber.execution.parallel.config.strategy", "fixed")
         // OPTIONAL: Set the fixed number of parallel test executions. Only works for the "fixed" strategy defined above
