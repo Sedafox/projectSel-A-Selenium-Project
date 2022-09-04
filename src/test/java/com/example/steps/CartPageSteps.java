@@ -84,4 +84,14 @@ public class CartPageSteps {
         cartPage.continueShoppingButton().click();
         assertEquals(cartPage.basePage() + "inventory.html", driver.getCurrentUrl());
     }
+
+    @Then("user clicks the checkout button")
+    public void userClicksTheCheckoutButton() {
+        cartPage.checkoutButton().click();
+    }
+
+    @And("User verifies they are taken to the checkout step one page")
+    public void userVerifiesTheyAreTakenToTheCheckoutStepOnePage() {
+        assertEquals(cartPage.basePage() + "checkout-step-one.html", driver.getCurrentUrl());
+    }
 }

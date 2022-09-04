@@ -11,5 +11,7 @@ public class CartPage extends Base {
 
     public WebElement continueShoppingButton() { return driver.findElement(By.id("continue-shopping")); }
 
+    public WebElement checkoutButton() { return driver.findElement(By.id("checkout")); }
+
 
 }

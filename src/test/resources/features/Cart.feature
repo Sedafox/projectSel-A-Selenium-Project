@@ -14,3 +14,10 @@ Feature: User tests everything to do with the cart page
       When clicks the cart button to visit the cart page
       Then user verifies that continue shopping button exists
       And clicking it returns the user back to the inventory page
+
+    Scenario: User verifies checkout button is functional
+      Given User visits saucedemo.com
+      And User logs in
+      When clicks the cart button to visit the cart page
+      Then user clicks the checkout button
+      And User verifies they are taken to the checkout step one page
