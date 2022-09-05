@@ -94,4 +94,21 @@ public class CartPageSteps {
     public void userVerifiesTheyAreTakenToTheCheckoutStepOnePage() {
         assertEquals(cartPage.basePage() + "checkout-step-one.html", driver.getCurrentUrl());
     }
+
+    @When("user enters name and zip info")
+    public void userEntersNameAndZipInfo() {
+        cartPage.firstNameField().sendKeys("John");
+        cartPage.lastNameField().sendKeys("Doe");
+        cartPage.zipCodeField().sendKeys("7899");
+    }
+
+    @And("clicks Continue")
+    public void clicksContinue() {
+        cartPage.continueButton().click();
+    }
+
+    @Then("user is on checkout step {int} page")
+    public void userIsOnCheckoutStepPage(int arg0) {
+        assertEquals(cartPage.basePage() + "checkout-step-two.html", driver.getCurrentUrl());
+    }
 }

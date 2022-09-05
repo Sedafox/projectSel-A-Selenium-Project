@@ -21,3 +21,12 @@ Feature: User tests everything to do with the cart page
       When clicks the cart button to visit the cart page
       Then user clicks the checkout button
       And User verifies they are taken to the checkout step one page
+
+    Scenario: User verifies that entering information on checkout step one page will bring user to checkout step 2
+      Given User visits saucedemo.com
+      And User logs in
+      When clicks the cart button to visit the cart page
+      And user clicks the checkout button
+      When user enters name and zip info
+      And clicks Continue
+      Then user is on checkout step 2 page
