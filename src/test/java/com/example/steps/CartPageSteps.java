@@ -107,8 +107,8 @@ public class CartPageSteps {
         cartPage.continueButton().click();
     }
 
-    @Then("user is on checkout step {int} page")
-    public void userIsOnCheckoutStepPage(int arg0) {
+    @Then("user is on checkout step two page")
+    public void userIsOnCheckoutStepPage() {
         assertEquals(cartPage.basePage() + "checkout-step-two.html", driver.getCurrentUrl());
     }
 }

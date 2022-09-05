@@ -29,4 +29,4 @@ Feature: User tests everything to do with the cart page
       And user clicks the checkout button
       When user enters name and zip info
       And clicks Continue
-      Then user is on checkout step 2 page
+      Then user is on checkout step two page
